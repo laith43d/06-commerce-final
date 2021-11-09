@@ -3,6 +3,8 @@ import uuid
 from PIL import Image
 from django.contrib.auth import get_user_model
 from django.db import models
+from mptt.fields import TreeForeignKey
+from simple_history.models import HistoricalRecords
 
 from config.utils.models import Entity
 
@@ -35,6 +37,7 @@ class Product(Entity):
     is_active = models.BooleanField('is active')
     label = models.ForeignKey('commerce.Label', verbose_name='label', related_name='products', null=True, blank=True,
                               on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.name
@@ -103,7 +106,7 @@ class OrderStatus(Entity):
 
 
 class Category(Entity):
-    parent = models.ForeignKey('self',
+    parent = TreeForeignKey('self',
                                verbose_name='parent',
                                related_name='children',
                                null=True,

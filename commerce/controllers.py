@@ -10,7 +10,7 @@ from pydantic import UUID4
 
 from account.authorization import GlobalAuth
 from commerce.models import Product, Category, City, Vendor, Item, Order, OrderStatus
-from commerce.schemas import ProductOut, CitiesOut, CitySchema, VendorOut, ItemOut, ItemSchema, ItemCreate
+from commerce.schemas import ProductOut, CitiesOut, CitySchema, VendorOut, ItemOut, ItemSchema, ItemCreate, CategoryOut
 from config.utils.schemas import MessageOut
 
 products_controller = Router(tags=['products'])
@@ -25,7 +25,7 @@ def list_vendors(request):
     return Vendor.objects.all()
 
 
-@products_controller.get('', response={
+@products_controller.get('', summary='List all products', response={
     200: List[ProductOut],
     404: MessageOut
 })
@@ -36,7 +36,14 @@ def list_products(
         price_to: int = None,
         vendor=None,
 ):
-    products_qs = Product.objects.filter(is_active=True).select_related('merchant', 'vendor', 'category', 'label')
+    """
+    To create an order please provide:
+     - **first_name**
+     - **last_name**
+     - and **list of Items** *(product + amount)*
+    """
+    products_qs = Product.objects.filter(is_active=True)\
+        .select_related('merchant', 'vendor', 'category', 'label')
 
     if not products_qs:
         return 404, {'detail': 'No products found'}
@@ -119,9 +126,9 @@ def list_addresses(request):
     pass
 
 
-# @products_controller.get('categories', response=List[CategoryOut])
-# def list_categories(request):
-#     return Category.objects.all()
+@products_controller.get('categories', response=List[CategoryOut])
+def list_categories(request):
+    return Category.objects.all()
 
 
 @address_controller.get('cities', response={

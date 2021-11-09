@@ -1,19 +1,15 @@
-# GIZ Task 5 - COMMERCE - AUTH
+# TASKS for today
 
-Task resolution process:
-
-* Fork the repo
-* Clone the forked repo to your local machine
-* Resolve the task
-* Commit your solution
-* Push to GitHub
-* create a pull request
-
-# Task 5
-
-This task is a complimentary task for the ongoing project (COMMERCE).
-
-Note: don't forget to `makemigrations` and `migrate`
-
-* secure all API endpoints that requires authorization
-* update the implementation accordingly, replace the hardcoded user with the respective implementation to retrieve the current user.
+1. ~~ORM optimization demonstration~~
+2. ~~request/response lifecycle profiling~~
+3. ~~Django-Silk~~
+4. ~~HTTP functional tests~~
+5. ~~admin panel customizations~~
+6. ~~API documentation fine-tuning~~
+7. ~~Prettifying errors output~~
+8. Online payment introduction & Zain Cash implementation
+9. ~~django-extensions~~
+10. ~~django-mptt~~
+11. ~~django-jazzmin~~
+12. django db migrate to postgres
+13. deployment

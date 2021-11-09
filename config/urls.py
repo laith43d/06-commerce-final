@@ -15,14 +15,14 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from ninja import NinjaAPI
 
 from account.controllers import account_controller
 from commerce.controllers import products_controller, address_controller, vendor_controller, order_controller
 from config import settings
 
-api = NinjaAPI()
+api = NinjaAPI(title='ECOM API for everyone', version='2.0.0', description='This is the REST API for our gorgeous ECOM platform')
 
 api.add_router('products', products_controller)
 api.add_router('addresses', address_controller)
@@ -33,8 +33,9 @@ api.add_router('auth', account_controller)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', api.urls),
-
 ]
+
+urlpatterns += [path('silk/', include('silk.urls', namespace='silk'))]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

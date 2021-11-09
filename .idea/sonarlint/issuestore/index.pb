@@ -8,8 +8,6 @@ C
 D
 commerce/__init__.py,f/2/f2bd2292f6ef3fccb4e29b9f652489934d9ddf07
 >
-config/wsgi.py,7/a/7a4aaa54a3efb112f8e2592ed1507e33ab6a7b8c
->
 config/asgi.py,5/9/597ed58946079f795070145abd2ba40aaf51a0ae
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4/9/496a238a6afa168dbaf6efd37bb459331589579c
@@ -30,29 +28,23 @@ A
 :
 
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
-A
-commerce/admin.py,d/7/d7369e273d90449ac8ca98014a010a921d984597
 ^
 .commerce/migrations/0002_auto_20211027_1637.py,d/a/daa0931328d2da3ea0d7525a016a5059103dbb53
-9
-	manage.py,3/1/3156ad13e4d695cd526bbb7b031016ecba842270
 @
 account/forms.py,b/8/b8e2f96492aecc66a1bafc71d69f5ca62bb068a0
 R
 "account/migrations/0001_initial.py,c/f/cfd55c10e5aa92f402d8fd4a9da60f1cb4d3fa7d
-B
-config/settings.py,7/6/769aa6664d3e5c284cbfb95fd9848a351a2e4e2b
->
-config/urls.py,4/5/45b243d494ecd78f07818174452843086c64845d
 F
 config/utils/models.py,c/1/c14a06a18aea0547314a3570b337cf0a4fb45df8
-B
-commerce/models.py,7/1/711f52d771377cd256b45e63a220bb3bb6a508a8
-C
-commerce/schemas.py,d/8/d894f63198256c2ed0d8db9d927bf2cdf904c6c8
-A
-account/models.py,9/9/9937dda3027dc290afca56146cdf71d4733d0e5b
 @
 account/admin.py,d/2/d25b89b2b521eab8cc69654cb14f7b5c9baa0078
 G
 config/utils/schemas.py,3/4/34c90a07e27d5c8a3ef689e55e8cea0f9a87ba68
+B
+account/schemas.py,8/d/8df5249aed7541f01af01ce25550166a6b854a05
+H
+account/authorization.py,7/a/7ab07aa288a648c5c07b845b6fb553d08def8cb3
+C
+commerce/schemas.py,d/8/d894f63198256c2ed0d8db9d927bf2cdf904c6c8
+F
+account/controllers.py,2/9/29ca27036c25db20a8f9f85e97a1f26c413af086

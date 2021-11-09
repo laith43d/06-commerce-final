@@ -1,7 +1,14 @@
-GET localhost:8000/api/auth
+POST localhost:8000/api/auth/signup
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwayI6ImY0MzkyMDQ1LTRmOTktNDk0NC05ZjNhLThlNGNhZTEzMjk3MCJ9.kmsdiH0zSlYyB-_8mV-sVdE0pDBEJSzszCPyJ5zQHMk
+
+{
+  "first_name": "new",
+  "last_name": "user",
+  "email": "user111@example.com",
+  "password1": "string!!@@",
+  "password2": "string!!@@"
+}
 
 ###
 POST localhost:8000/api/auth/signin
@@ -12,6 +19,24 @@ Accept: application/json
   "email": "user@example.com",
   "password": "!!123123!!"
 }
+
+> {%
+ client.test('200', function (){
+     client.assert(response.status === 200, 'failed to signin')
+ })
+
+ client.test('json', function (){
+     var type = response.contentType.mimeType
+     client.assert(type === 'application/json', 'expected application/json but got ' + type + 'type')
+ })
+
+ client.test('token', function (){
+     var token = response.body.token.access
+     client.assert(token, 'expected token but got nothing')
+ })
+ %}
+
+
 
 ###
 GET localhost:8000/api/auth
