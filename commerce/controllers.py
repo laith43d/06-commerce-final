@@ -136,9 +136,7 @@ def list_categories(request):
     404: MessageOut
 })
 def list_cities(request):
-    cities_qs = City.objects.all()
-
-    if cities_qs:
+    if cities_qs := City.objects.all():
         return cities_qs
 
     return 404, {'detail': 'No cities found'}
@@ -187,9 +185,9 @@ def delete_city(request, id: UUID4):
     404: MessageOut
 })
 def view_cart(request):
-    cart_items = Item.objects.filter(user=User.objects.first(), ordered=False)
-
-    if cart_items:
+    if cart_items := Item.objects.filter(
+        user=User.objects.first(), ordered=False
+    ):
         return cart_items
 
     return 404, {'detail': 'Your cart is empty, go shop like crazy!'}
